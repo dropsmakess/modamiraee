@@ -1,224 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Moda Mirae</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap');
-body { margin:0; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#0b0b0e; color:#fff; min-height:100vh; overflow-x:hidden; }
-header { background: linear-gradient(90deg,#6f00ff,#3c0071); padding:20px; text-align:center; }
-header h1 { margin:0; font-size:2.8rem; color:#fff; }
-nav { display:flex; justify-content:center; background-color:#141414cc; padding:10px; gap:20px; flex-wrap:wrap; }
-nav button { background-color:#3c0071; color:#fff; border:none; padding:12px 24px; border-radius:8px; cursor:pointer; transition: all 0.3s ease; font-size:1.1rem; }
-nav button:hover { box-shadow:0 0 12px #6f00ff; transform:scale(1.05); }
-.container { max-width:1200px; margin:40px auto; padding:0 20px; }
-.auth { display:flex; justify-content:center; margin-bottom:30px; flex-wrap:wrap; gap:10px; }
-.auth input, .auth button { padding:10px; border-radius:6px; border:none; font-size:1rem; }
-.auth input { width:200px; max-width:90vw; }
-.auth button { background-color:#6f00ff; color:#fff; cursor:pointer; min-width:120px; }
-.product-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-.product { background-color:#1a1a1fcc; border:1px solid #3e3e50; border-radius:12px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; color:#d0aaff; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.product:hover { transform:scale(1.03); box-shadow:0 0 15px rgba(111,0,255,0.5); }
-.product img { width:100%; height:250px; object-fit:cover; border-radius:8px; margin-bottom:15px; }
-.product h2 { font-size:1.3rem; margin:0 0 10px; color:#b85fff; }
-.product p { color:#ccc; font-size:0.95rem; }
-.add-cart { background-color:#6f00ff; border:none; padding:10px 15px; color:#fff; border-radius:6px; cursor:pointer; margin-top:15px; font-weight:bold; transition: all 0.3s ease; }
-.add-cart:hover { background-color:#8b33ff; transform:scale(1.05); }
-.cart { position:fixed; top:20px; right:20px; background-color:#1f1f27cc; padding:15px; border-radius:8px; border:1px solid #333; width:280px; max-height:70vh; overflow-y:auto; z-index:10; color:#d0aaff; box-shadow:0 0 10px #6f00ffcc; }
-.cart h3 { margin-top:0; font-size:1.3rem; display:flex; justify-content:space-between; align-items:center; }
-.cart-count { background-color:#6f00ff; border-radius:50%; width:24px; height:24px; font-size:1rem; color:white; display:flex; justify-content:center; align-items:center; font-weight:bold; }
-.cart-items { list-style:none; padding-left:0; margin:10px 0 0 0; font-size:0.9rem; }
-.cart-item { background-color:#2a2a3a; margin-bottom:8px; border-radius:8px; padding:8px 10px; display:flex; justify-content:space-between; align-items:center; color:#eee; }
-.quantity-controls button { background-color:#6f00ff; border:none; color:white; font-weight:bold; padding:4px 8px; border-radius:6px; cursor:pointer; margin:0 2px; }
-.pay-button { background-color:#3c0071; color:white; border:none; padding:12px; border-radius:6px; margin-top:10px; cursor:pointer; width:100%; font-weight:bold; font-size:1rem; }
-.pay-button:hover { background-color:#6f00ff; transform:scale(1.02); }
-#adminPanel { background-color:#2a2a3a; padding:20px; border-radius:12px; margin-bottom:30px; color:#d0aaff; max-width:600px; margin-left:auto; margin-right:auto; }
-#adminPanel h2 { margin-top:0; }
-#adminPanel input, #adminPanel select { width:100%; margin-bottom:15px; padding:8px; border-radius:6px; border:none; font-size:1rem; }
-#adminPanel button { background-color:#6f00ff; border:none; color:white; padding:12px; border-radius:6px; font-weight:bold; cursor:pointer; width:100%; font-size:1rem; }
-#adminPanel button:hover { background-color:#8b33ff; }
-@media(max-width:600px){ nav { gap:10px; } .cart { width:90vw; max-height:50vh; right:5%; } #adminPanel { max-width:90vw; } }
-/* WhatsApp flutuante */
-#whatsappButton { position:fixed; bottom:20px; right:20px; background-color:#25d366; color:white; border:none; border-radius:50%; width:60px; height:60px; font-size:30px; cursor:pointer; display:flex; justify-content:center; align-items:center; z-index:1000; box-shadow:0 2px 10px rgba(0,0,0,0.3); }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos Moda Mirae</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .product {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .product h3 {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .product p {
+      font-size: 1em;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-<header>
-<h1>Moda Mirae</h1>
-</header>
 
-<nav>
-<button onclick="filterProducts('all')">Todos</button>
-<button onclick="filterProducts('roupas')">Roupas</button>
-<button onclick="filterProducts('acessorios')">Acessórios</button>
-<button onclick="filterProducts('kits')">Kits</button>
-<button onclick="filterProducts('personalize')">Personalize</button>
-</nav>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1561948955-9a9b3c5a5e4f" alt="Camisa">
+    <h3>Camisa</h3>
+    <p>Camisa feminina social manga longa em linho.</p>
+  </div>
 
-<div class="auth" id="authSection">
-<input type="text" placeholder="Email" id="email">
-<input type="password" placeholder="Senha" id="password">
-<button onclick="login()">Entrar</button>
-</div>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1603052875421-1c9c7e6b2f3e" alt="Moletom">
+    <h3>Moletom</h3>
+    <p>Conjunto moletom feminino com zíper e capuz.</p>
+  </div>
 
-<div class="auth" id="welcomeSection" style="display:none; align-items:center; gap:15px;">
-<span>Bem-vindo, <strong><span id="userEmail"></span></strong>!</span>
-<button onclick="logout()" style="background-color:#9000ff; color:#fff; border:none; padding:6px 12px; border-radius:6px; cursor:pointer;">Sair</button>
-</div>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1603052875421-1c9c7e6b2f3e" alt="Bolsa">
+    <h3>Bolsa</h3>
+    <p>Bolsa slim personalizada com estampa pitaya.</p>
+  </div>
 
-<div class="container">
-<div id="adminPanel" style="display:none;">
-<h2>Painel do Administrador</h2>
-<input type="text" id="newName" placeholder="Nome do Produto">
-<input type="text" id="newDesc" placeholder="Descrição">
-<input type="text" id="newPrice" placeholder="Preço (ex: R$ 35,00)">
-<select id="newCategory">
-<option value="roupas">Roupas</option>
-<option value="acessorios">Acessórios</option>
-<option value="kits">Kits</option>
-<option value="personalize">Personalize</option>
-</select>
-<button onclick="addProduct()">Adicionar Produto</button>
-</div>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1603052875421-1c9c7e6b2f3e" alt="Caneca">
+    <h3>Caneca</h3>
+    <p>Caneca personalizada com foto.</p>
+  </div>
 
-<div class="product-grid" id="productGrid"></div>
-</div>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1603052875421-1c9c7e6b2f3e" alt="Canga">
+    <h3>Canga</h3>
+    <p>Canga de toalha personalizada com nome.</p>
+  </div>
 
-<div class="cart">
-<h3>Carrinho <span class="cart-count" id="cartCount">0</span></h3>
-<ul class="cart-items" id="cartItems"></ul>
-<button class="pay-button" onclick="finalizarCompra()">Finalizar Compra</button>
-</div>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1603052875421-1c9c7e6b2f3e" alt="Chinelo">
+    <h3>Chinelo</h3>
+    <p>Chinelo personalizado com foto.</p>
+  </div>
 
-<!-- WhatsApp flutuante -->
-<button id="whatsappButton" onclick="window.open('https://wa.me/553186098752','_blank')">💬</button>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1603052875421-1c9c7e6b2f3e" alt="Necessaire">
+    <h3>Necessaire</h3>
+    <p>Necessaire personalizada com foto.</p>
+  </div>
 
-<footer>
-<p>&copy; 2025 Moda Mirae — Todos os direitos reservados.</p>
-</footer>
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1603052875421-1c9c7e6b2f3e" alt="Toalha">
+    <h3>Toalha</h3>
+    <p>Toalha personalizada com foto.</p>
+  </div>
 
-<script>
-const adminEmail = 'adm.admin.com';
-const products = [
-  {name:'Camisa',desc:'Camiseta estilosa para fãs.',price:'R$ 69,90',category:'roupas',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Camisa'},
-  {name:'Moletom',desc:'Moletom confortável.',price:'R$ 149,90',category:'roupas',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Moletom'},
-  {name:'Bolsa',desc:'Bolsa moderna e estilosa.',price:'R$ 119,90',category:'acessorios',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Bolsa'},
-  {name:'Caneca',desc:'Caneca personalizada.',price:'R$ 45,00',category:'acessorios',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Caneca'},
-  {name:'Canga',desc:'Canga exclusiva.',price:'R$ 129,00',category:'acessorios',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Canga'},
-  {name:'Canga Atoalhada',desc:'Canga macia e confortável.',price:'R$ 159,90',category:'acessorios',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Canga+Atoalhada'},
-  {name:'Chinelo',desc:'Chinelo temático.',price:'R$ 49,90',category:'acessorios',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Chinelo'},
-  {name:'Necessaire',desc:'Ideal para organizar itens.',price:'R$ 39,90',category:'acessorios',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Necessaire'},
-  {name:'Toalha',desc:'Toalha personalizada.',price:'R$ 149,90',category:'acessorios',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Toalha'},
-  {name:'Squeze',desc:'Garrafa squeeze estilosa.',price:'R$ 59,90',category:'acessorios',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Squeze'},
-  {name:'Kit 01',desc:'Canga, nécessaire e viseira.',price:'R$ 189,90',category:'kits',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Kit+01'},
-  {name:'Kit 02',desc:'Canga, Bolsa e nécessaire.',price:'R$ 269,90',category:'kits',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Kit+02'},
-  {name:'Kit 03',desc:'Canga, nécessaire, bolsa e chinelo.',price:'R$ 319,90',category:'kits',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Kit+03'},
-  {name:'Kit 04',desc:'Canga atoalhada, nécessaire e bolsas.',price:'R$ 299,90',category:'kits',img:'https://via.placeholder.com/300/FFFFFF/000000?text=Kit+04'}
-];
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1603052875421-1c9c7e6b2f3e" alt="Squeze">
+    <h3>Squeze</h3>
+    <p>Squeze personalizada com foto.</p>
+  </div>
 
-const productGrid = document.getElementById('productGrid');
-const cartItems = document.getElementById('cartItems');
-const cartCount = document.getElementById('cartCount');
-const authSection = document.getElementById('authSection');
-const welcomeSection = document.getElementById('welcomeSection');
-const userEmailSpan = document.getElementById('userEmail');
-const adminPanel = document.getElementById('adminPanel');
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1603052875421-1c9c7e6b2f3e" alt="Kit">
+    <h3>Kit</h3>
+    <p>Kit praia com canga, toalha, bolsa e necessaire.</p>
+  </div>
 
-let cart = {};
-
-function renderProducts(filter){
-  productGrid.innerHTML='';
-  const filtered = filter==='all'? products : products.filter(p=>p.category===filter);
-  filtered.forEach(p=>{
-    const div=document.createElement('div');
-    div.className='product';
-    div.innerHTML=`
-      <img src="${p.img}" alt="${p.name}">
-      <h2>${p.name}</h2>
-      <p>${p.desc}</p>
-      <p><strong>${p.price}</strong></p>
-      <button class="add-cart" onclick="addToCart('${p.name}')">Adicionar</button>
-    `;
-    productGrid.appendChild(div);
-  });
-}
-
-function renderCart(){
-  cartItems.innerHTML='';
-  let totalItems=0;
-  for(const [name,qty] of Object.entries(cart)){
-    totalItems+=qty;
-    const li=document.createElement('li');
-    li.className='cart-item';
-    li.innerHTML=`
-      <span>${name}</span>
-      <div class="quantity-controls">
-        <button onclick="changeQuantity('${name}',-1)">-</button>
-        <span>${qty}</span>
-        <button onclick="changeQuantity('${name}',1)">+</button>
-      </div>
-      <button onclick="removeFromCart('${name}')">x</button>
-    `;
-    cartItems.appendChild(li);
-  }
-  cartCount.textContent=totalItems;
-}
-
-function addToCart(name){if(!cart[name]) cart[name]=0; cart[name]++; renderCart();}
-function removeFromCart(name){delete cart[name]; renderCart();}
-function changeQuantity(name,delta){if(!cart[name]) return; cart[name]+=delta; if(cart[name]<=0) delete cart[name]; renderCart();}
-function filterProducts(category){renderProducts(category);}
-
-function login(){
-  const email=document.getElementById('email').value.trim();
-  const password=document.getElementById('password').value.trim();
-  if(!email||!password){alert('Preencha todos os campos.'); return;}
-  localStorage.setItem('mvUserEmail',email);
-  alert('Login efetuado com sucesso! Bem-vindo, '+email);
-  updateLoginStatus();
-}
-
-function updateLoginStatus(){
-  const email=localStorage.getItem('mvUserEmail');
-  if(email){
-    authSection.style.display='none';
-    welcomeSection.style.display='flex';
-    userEmailSpan.textContent=email;
-    if(email===adminEmail){ adminPanel.style.display='block'; } else{ adminPanel.style.display='none'; }
-  } else{
-    authSection.style.display='flex';
-    welcomeSection.style.display='none';
-    userEmailSpan.textContent='';
-    adminPanel.style.display='none';
-  }
-}
-
-function logout(){localStorage.removeItem('mvUserEmail'); alert('Você saiu da conta.'); updateLoginStatus();}
-
-function addProduct(){
-  const name=document.getElementById('newName').value.trim();
-  const desc=document.getElementById('newDesc').value.trim();
-  const price=document.getElementById('newPrice').value.trim();
-  const category=document.getElementById('newCategory').value;
-  if(!name||!desc||!price){alert('Preencha todos os campos do produto.'); return;}
-  products.push({name,desc,price,category,img:'https://via.placeholder.com/300/FFFFFF/000000?text='+encodeURIComponent(name)});
-  alert('Produto adicionado com sucesso!');
-  renderProducts('all');
-  document.getElementById('newName').value='';
-  document.getElementById('newDesc').value='';
-  document.getElementById('newPrice').value='';
-}
-
-function finalizarCompra(){
-  if(Object.keys(cart).length===0){ alert('O carrinho está vazio!'); return; }
-  if(confirm('Deseja finalizar a compra? Você será redirecionado para pagamento via Pix.')){
-    window.open('https://pag.ae/62993473000194','_blank');
-  }
-}
-
-updateLoginStatus();
-renderProducts('all');
-</script>
 </body>
 </html>
+
